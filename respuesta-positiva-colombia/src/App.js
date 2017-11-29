@@ -8,10 +8,10 @@ class App extends Component {
       <div className="App">
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Bienvenido a Respuesta Positiva</h1>
+          <h1 className="App-title">SRF Consultores SAS</h1>
         </header>
         <p className="App-intro">
-          Esto es un codigo de prueba
+          Bienvenido a Respuesta Positiva
         </p>
       </div>
     );
