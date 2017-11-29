@@ -11,7 +11,7 @@ class App extends Component {
           <h1 className="App-title">SRF Consultores SAS</h1>
         </header>
         <p className="App-intro">
-          Bienvenido a Respuesta Positiva
+          Respuesta Positiva
         </p>
       </div>
     );
