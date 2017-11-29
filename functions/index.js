@@ -1,8 +1,6 @@
 const functions = require('firebase-functions');
 
-// // Create and Deploy Your First Cloud Functions
-// // https://firebase.google.com/docs/functions/write-firebase-functions
-//
-// exports.helloWorld = functions.https.onRequest((request, response) => {
-//  response.send("Hello from Firebase!");
-// });
+ exports.respuesta_function = functions.https.onRequest((request, response) => {
+    console.log("Carlos Emilio Soto Fernandez");
+    response.send("Hola desde Respuesta Positiva");
+ });
