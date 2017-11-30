@@ -1,9 +1,10 @@
 import React, { Component } from 'react';
-import logo from './logo.png';
-import './App.css';
+import { Grid, Row, Col } from 'react-bootstrap';
 import firebase from 'firebase';
+
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
+
 import { TextField } from 'material-ui';
 
 const muiTheme = getMuiTheme({
@@ -43,7 +44,6 @@ class App extends Component {
       })
     })
 
-
     lastnameRef.on('value', (snapshot) => {
       this.setState({
         lastname: snapshot.val()
@@ -52,28 +52,30 @@ class App extends Component {
 
   }
   
-  
   render() {
     const nameRef = firebase.database().ref().child('object').child('name');
     const lastnameRef = firebase.database().ref().child('object').child('lastname');
     
     return (
       <MuiThemeProvider muiTheme={muiTheme}>
-        <div className="App">
-          <header className="App-header">
-            <img src={logo} className="App-logo" alt="logo" />
-            <h1 className="App-title">SRF Consultores SAS</h1>
-          </header>
-          <h1>
-            {this.state.name}
-          </h1>
-          <h1>
-            {this.state.lastname}
-          </h1>
-          <TextField onChange={(e,value)=>{nameRef.set(value)}} type='text' fullWidth={true} floatingLabelFixed={true} floatingLabelText='Mensaje 1' name='mensaje1' hintText='Escribe algo'/>
-          <TextField onChange={(e,value)=>{lastnameRef.set(value)}} type='text' fullWidth={true} floatingLabelFixed={true} floatingLabelText='Mensaje 2' name='mensaje2' hintText='Escribe algo'/>
-          
-        </div>
+        <Grid md={12} class='container-fluid'>
+          <Row md={12}>
+            <Col md={6}>
+              <h1>{this.state.name}</h1>
+            </Col>
+            <Col md={6}>
+              <h1>{this.state.lastname}</h1>            
+            </Col>
+          </Row>
+          <Row md={12}>
+            <Col md={6}>
+              <TextField onChange={(e,value)=>{nameRef.set(value)}} type='text' fullWidth={true} floatingLabelFixed={true} floatingLabelText='Mensaje 1' name='mensaje1' hintText='Escribe algo'/>
+            </Col>
+            <Col md={6}>
+              <TextField onChange={(e,value)=>{lastnameRef.set(value)}} type='text' fullWidth={true} floatingLabelFixed={true} floatingLabelText='Mensaje 2' name='mensaje2' hintText='Escribe algo'/>            
+            </Col>
+          </Row>
+        </Grid>
       </MuiThemeProvider>
     );
   }
